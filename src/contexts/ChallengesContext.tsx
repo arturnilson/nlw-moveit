@@ -95,9 +95,9 @@ export function ChallengesProvider({ children }: ChallengesProviderProps) {
                 currentExperience,
                 experienceToNextLevel,
                 challengesCompleted,
+                activeChallenge,
                 levelUp,
                 startNewChallenge,
-                activeChallenge,
                 resetChallenge,
                 completeChallenge
             }}
