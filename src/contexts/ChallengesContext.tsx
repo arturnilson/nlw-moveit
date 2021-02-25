@@ -1,4 +1,4 @@
-import { createContext, useState, ReactNode } from 'react';
+import { createContext, useState, ReactNode, useEffect } from 'react';
 import challenges from '../../challenges.json';
 
 // Interface = tipagem
@@ -38,6 +38,12 @@ export function ChallengesProvider({ children }: ChallengesProviderProps) {
 
     const experienceToNextLevel = Math.pow((level + 1) * 4, 2);
 
+    // useEffect com segundo parâmetro [] for vazio, 
+    // será executado uma única vez assim que o componente for exibido em tela
+    useEffect(() => {
+        Notification.requestPermission();
+    }, []);
+
     function levelUp() {
         setLevel(level + 1);
     }
@@ -47,6 +53,16 @@ export function ChallengesProvider({ children }: ChallengesProviderProps) {
         const challenge = challenges[randomChallengeIndex];
 
         setActiveChallenge(challenge);
+
+        // Para tocar o áudio da notificação
+        // Arquivos dentro da public, não precisa informar o caminho
+        new Audio('/notification.mp3').play();
+
+        if (Notification.permission === 'granted') { // Notificação para o usuário
+            new Notification('Novo desafio 🎉', {
+                body: `Valendo ${challenge.amount} xp!`
+            })
+        }
     }
 
     function resetChallenge() {
