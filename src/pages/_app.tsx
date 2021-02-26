@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import '../styles/global.css';
 
-import { ChallengesProvider } from '../contexts/ChallengesContext';
+// import { ChallengesProvider } from '../contexts/ChallengesContext';
 // Informações que a aplicação toda deve ter acesso (Componentes se conversam), é utilizado um context
 
 function MyApp({ Component, pageProps }) {
@@ -14,9 +14,9 @@ function MyApp({ Component, pageProps }) {
 
   // Conteúdo que está em todas as páginas, colocar dentro do Component, fica em volta de toda aplicação (cabecalho, rodapé,...)
   return (
-    <ChallengesProvider>
-      <Component {...pageProps} />
-    </ChallengesProvider>
+    // <ChallengesProvider> // Repassado para index.tsx por conta dos cookies
+    <Component {...pageProps} />
+    // </ChallengesProvider>
   )
 }
 
