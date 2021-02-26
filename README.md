@@ -1,6 +1,4 @@
 <h1 align="center">NextLevelWeek - Moveit</h1>
-
-## Descrição do Projeto
 <p align="center">Projeto realizado durante a NextLevelWeek #4 </p>
 
 
